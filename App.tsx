@@ -1,13 +1,17 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
 
+import { store } from '@redux/stores/store';
 import Routes from '@routes';
 
 function App() {
   return (
-    <SafeAreaView style={styles.appContainer}>
-      <Routes />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={styles.appContainer}>
+        <Routes />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
