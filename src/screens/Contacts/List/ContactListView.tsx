@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   SafeAreaView,
   View,
@@ -12,17 +12,34 @@ import Icon from 'react-native-vector-icons/Feather';
 import { type PropsFromSelector } from './ContactListSelector';
 import styles from './styles';
 
-export type ViewProps = PropsFromSelector;
+export type ViewProps = PropsFromSelector & {
+  isLoading: boolean;
+  isGranted: boolean;
+  handleOnRefresh: () => void;
+};
 
-const ContactListView = ({ contacts }: ViewProps) => {
+const ContactListView = ({
+  contacts,
+  isLoading,
+  isGranted,
+  handleOnRefresh,
+}: ViewProps) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Contacts</Text>
+        <Text style={styles.title}>Contacts Lite</Text>
       </View>
+
       <SectionList
         sections={contacts}
         keyExtractor={(item, index) => `${item.givenName}_${index}`}
+        style={styles.listContainer}
+        stickySectionHeadersEnabled
+        refreshing={isLoading}
+        onRefresh={handleOnRefresh}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.sectionTitle}>{title}</Text>
+        )}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <TouchableOpacity
@@ -63,13 +80,27 @@ const ContactListView = ({ contacts }: ViewProps) => {
             </TouchableOpacity>
           </View>
         )}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.sectionTitle}>{title}</Text>
+        ListEmptyComponent={() => (
+          <View style={styles.emptyContainer}>
+            {!isLoading &&
+              (!isGranted ? (
+                <View style={styles.emptyBox}>
+                  <Icon color="#9ca3af" name="frown" size={48} />
+                  <Text style={styles.emptyText}>
+                    Please allow us to access your contacts to continue
+                  </Text>
+                </View>
+              ) : (
+                <View style={styles.emptyBox}>
+                  <Icon color="#9ca3af" name="user-x" size={48} />
+                  <Text style={styles.emptyText}>No contacts can be found</Text>
+                </View>
+              ))}
+          </View>
         )}
-        style={styles.listContainer}
       />
     </SafeAreaView>
   );
 };
 
-export default ContactListView;
+export default memo(ContactListView);

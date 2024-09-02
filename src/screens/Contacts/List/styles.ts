@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import { Colors } from '@constants';
 
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: '700',
     color: '#1d1d1d',
   },
@@ -73,6 +73,27 @@ const styles = StyleSheet.create({
   },
   cardAction: {
     paddingRight: 16,
+  },
+
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 24,
+    paddingRight: 16,
+    height: Dimensions.get('window').height - 400,
+  },
+  emptyText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#616d79',
+    textAlign: 'center',
+    marginTop: 12,
+  },
+  emptyBox: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
