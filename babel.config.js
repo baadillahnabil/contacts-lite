@@ -24,6 +24,7 @@ module.exports = {
           '@assets': './src/assets',
           '@components': './src/components',
           '@constants': './src/constants',
+          '@helpers': './src/helpers',
           '@redux': './src/redux',
           '@routes': './src/routes',
           '@screens': './src/screens',

@@ -6,6 +6,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@constants": ["src/constants/index"],
+      "@helpers/*": ["src/helpers/*"],
       "@redux/*": ["src/redux/*"],
       "@routes": ["src/routes/index"],
       "@routes/*": ["src/routes/*"],
