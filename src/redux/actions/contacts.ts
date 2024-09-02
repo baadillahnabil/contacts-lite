@@ -1,10 +1,10 @@
-import { type Contact } from 'react-native-contacts';
+import { Contact } from '@redux/interfaces/contacts';
 
 // Action Types
 const CONTACTS_SAVE_ALL = 'contacts/CONTACTS_SAVE_ALL';
 
 // Action Creators
-const contactsSaveAll = (payload: Contact[]) => ({
+const contactsSaveAll = (payload: Contact['data']) => ({
   type: CONTACTS_SAVE_ALL,
   payload,
 });

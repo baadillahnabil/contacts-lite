@@ -13,6 +13,6 @@ export default createReducer(INITIAL_STATE, {
       'payload'
     >;
 
-    state.data = payload.map(contact => ({ ...contact, isFavorite: false }));
+    state.data = payload;
   },
 });
