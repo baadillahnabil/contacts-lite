@@ -24,6 +24,13 @@ export const selectContactListData = createSelector(
         data: data.sort((a, b) => a.givenName.localeCompare(b.givenName)),
       }));
 
+    if (ContactsReducer.data.some(contact => contact.isStarred)) {
+      formattedData.unshift({
+        title: 'Favorites',
+        data: ContactsReducer.data.filter(contact => contact.isStarred),
+      });
+    }
+
     return {
       contacts: formattedData,
     };

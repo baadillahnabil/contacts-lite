@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import FeatherIcon from 'react-native-vector-icons/Feather';
+import AntIcon from 'react-native-vector-icons/AntDesign';
 
 import { type PropsFromSelector } from './ContactListSelector';
 import styles from './styles';
@@ -41,9 +42,13 @@ const ContactListView = ({
         stickySectionHeadersEnabled
         refreshing={isLoading}
         onRefresh={handleOnRefresh}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.sectionTitle}>{title}</Text>
-        )}
+        renderSectionHeader={({ section: { title } }) =>
+          title === 'Favorites' ? (
+            <AntIcon name="star" size={20} style={{ ...styles.sectionTitle }} />
+          ) : (
+            <Text style={styles.sectionTitle}>{title}</Text>
+          )
+        }
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <TouchableOpacity
@@ -76,7 +81,7 @@ const ContactListView = ({
                 </View>
 
                 <View style={styles.cardAction}>
-                  <Icon color="#9ca3af" name="chevron-right" size={22} />
+                  <FeatherIcon color="#9ca3af" name="chevron-right" size={22} />
                 </View>
               </View>
             </TouchableOpacity>
@@ -87,14 +92,14 @@ const ContactListView = ({
             {!isLoading &&
               (!isGranted ? (
                 <View style={styles.emptyBox}>
-                  <Icon color="#9ca3af" name="frown" size={48} />
+                  <FeatherIcon color="#9ca3af" name="frown" size={48} />
                   <Text style={styles.emptyText}>
                     Please allow us to access your contacts to continue
                   </Text>
                 </View>
               ) : (
                 <View style={styles.emptyBox}>
-                  <Icon color="#9ca3af" name="user-x" size={48} />
+                  <FeatherIcon color="#9ca3af" name="user-x" size={48} />
                   <Text style={styles.emptyText}>No contacts can be found</Text>
                 </View>
               ))}
