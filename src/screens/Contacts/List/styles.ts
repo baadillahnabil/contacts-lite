@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
-import { Colors } from '@constants';
+import { COLORS } from '@constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: '#000',
-    backgroundColor: Colors.ui_grey_05,
+    backgroundColor: COLORS.ui_grey_05,
     paddingVertical: 12,
   },
 

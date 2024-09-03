@@ -1,17 +1,26 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import Contacts from 'react-native-contacts';
+import { useNavigation } from '@react-navigation/native';
+import { type NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import { type AppStackParamList } from '@routes';
 import { ACTIONS } from '@redux/actions/contacts';
 import { useContactPermission } from '@helpers/hooks';
 
-import { selectContactsData } from './ContactListSelector';
-import ContactListView from './ContactListView';
+import { selectContactListData } from './ContactListSelector';
+import ContactListView, { type ViewProps } from './ContactListView';
+
+type NavigationType = NativeStackScreenProps<
+  AppStackParamList,
+  'ContactList'
+>['navigation'];
 
 const ContactListContainer = () => {
   const dispatch = useDispatch();
+  const { navigate } = useNavigation<NavigationType>();
   const { isRequesting, requestPermission } = useContactPermission();
-  const { contacts } = useSelector(selectContactsData, shallowEqual);
+  const { contacts } = useSelector(selectContactListData, shallowEqual);
 
   const [isGranted, setIsGranted] = useState(false);
   const [isGettingContacts, setIsGettingContacts] = useState(false);
@@ -44,12 +53,20 @@ const ContactListContainer = () => {
     }
   }, [dispatch]);
 
+  const handleSelectedContact: ViewProps['handleSelectedContact'] = useCallback(
+    id => {
+      navigate('ContactDetail', { recordId: id });
+    },
+    [],
+  );
+
   return (
     <ContactListView
       contacts={contacts}
       isLoading={isRequesting || isGettingContacts}
       isGranted={isGranted}
       handleOnRefresh={getContacts}
+      handleSelectedContact={handleSelectedContact}
     />
   );
 };

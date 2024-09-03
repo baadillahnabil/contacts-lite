@@ -16,6 +16,9 @@ export type ViewProps = PropsFromSelector & {
   isLoading: boolean;
   isGranted: boolean;
   handleOnRefresh: () => void;
+  handleSelectedContact: (
+    id: PropsFromSelector['contacts'][number]['data'][number]['recordID'],
+  ) => void;
 };
 
 const ContactListView = ({
@@ -23,6 +26,7 @@ const ContactListView = ({
   isLoading,
   isGranted,
   handleOnRefresh,
+  handleSelectedContact,
 }: ViewProps) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -43,9 +47,7 @@ const ContactListView = ({
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() => {
-                // handle onPress
-              }}>
+              onPress={() => handleSelectedContact(item.recordID)}>
               <View style={styles.card}>
                 {item.hasThumbnail ? (
                   <Image

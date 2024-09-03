@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { AppState } from '@redux/stores/configureStore';
 import type { Contact as ContactStoreInterface } from '@redux/interfaces/contacts';
 
-export const selectContactsData = createSelector(
+export const selectContactListData = createSelector(
   [({ ContactsReducer }: AppState) => ContactsReducer],
   ContactsReducer => {
     const sectionedData = ContactsReducer.data.reduce<
@@ -30,4 +30,4 @@ export const selectContactsData = createSelector(
   },
 );
 
-export type PropsFromSelector = ReturnType<typeof selectContactsData>;
+export type PropsFromSelector = ReturnType<typeof selectContactListData>;
