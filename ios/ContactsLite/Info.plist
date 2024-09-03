@@ -50,6 +50,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Feather.ttf</string>
+		<string>AntDesign.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

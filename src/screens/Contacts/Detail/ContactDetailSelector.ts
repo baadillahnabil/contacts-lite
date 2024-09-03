@@ -82,6 +82,7 @@ export const selectContactDetailData = (recordId: string) =>
           nameInitials: `${selectedContact.givenName[0]}${selectedContact.familyName[0]}`,
           image: selectedContact.hasThumbnail && selectedContact.thumbnailPath,
           job: [selectedContact.jobTitle, selectedContact.company].join(' - '),
+          isStarred: selectedContact.isStarred,
           sectionedData,
         },
       };

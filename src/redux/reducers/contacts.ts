@@ -15,4 +15,17 @@ export default createReducer(INITIAL_STATE, {
 
     state.data = payload;
   },
+  [ACTION_TYPES.CONTACTS_FAVORITE_UPDATE]: (state, action) => {
+    const {
+      payload: { recordId },
+    } = action as Pick<
+      ReturnType<typeof ACTIONS.contactsFavoriteUpdate>,
+      'payload'
+    >;
+
+    state.data = state.data.map(contact => ({
+      ...contact,
+      isStarred: contact.recordID === recordId && !contact.isStarred,
+    }));
+  },
 });

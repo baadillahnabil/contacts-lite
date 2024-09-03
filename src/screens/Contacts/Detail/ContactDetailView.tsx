@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { View, Text, Image, SafeAreaView, SectionList } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import FeatherIcon from 'react-native-vector-icons/Feather';
+import AntIcon from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { type PropsFromSelector } from './ContactDetailSelector';
@@ -8,16 +9,21 @@ import styles from './styles';
 
 export type ViewProps = PropsFromSelector & {
   handleBack: () => void;
+  handleFavorite: () => void;
 };
 
-const ContactDetailView = ({ selectedContact, handleBack }: ViewProps) => {
+const ContactDetailView = ({
+  selectedContact,
+  handleBack,
+  handleFavorite,
+}: ViewProps) => {
   return (
     <SafeAreaView>
       <LinearGradient
         colors={['#BDBDC1', '#A2A4B0']}
         style={styles.thumbnailContainer}>
         <View style={styles.thumbnailHeader}>
-          <Icon.Button
+          <FeatherIcon.Button
             name="chevron-left"
             size={20}
             borderRadius={50}
@@ -25,12 +31,14 @@ const ContactDetailView = ({ selectedContact, handleBack }: ViewProps) => {
             iconStyle={{ marginRight: 0 }}
             onPress={handleBack}
           />
-          <Icon.Button
-            name="star"
+          <AntIcon.Button
+            name={selectedContact.isStarred ? 'star' : 'staro'}
             size={20}
             borderRadius={50}
             backgroundColor="#A3A4A7"
+            color={selectedContact.isStarred ? '#FFD700' : 'white'}
             iconStyle={{ marginRight: 0 }}
+            onPress={handleFavorite}
           />
         </View>
         <View style={styles.thumbnailImageContainer}>
