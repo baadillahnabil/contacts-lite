@@ -4,8 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { AppStack } from './AppStack';
 
+export type RootStackParamList = {
+  App: undefined;
+};
+
 const Stack = createNativeStackNavigator();
-const RootStack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const Routes = () => {
   return (
@@ -20,5 +24,7 @@ const Routes = () => {
     </NavigationContainer>
   );
 };
+
+export type { AppStackParamList } from './AppStack';
 
 export default Routes;
