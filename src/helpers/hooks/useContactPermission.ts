@@ -38,9 +38,7 @@ const useContactPermission = () => {
         const isGranted = await Contacts.checkPermission();
         if (isGranted === 'authorized') return true;
         else {
-          console.log('Requesting permission');
           const response = await Contacts.requestPermission();
-          console.log('Requesting permission => ', response);
           if (response === 'authorized') return true;
         }
       } catch (e) {
