@@ -1,5 +1,6 @@
-import { COLORS } from '@constants';
 import { StyleSheet, Dimensions } from 'react-native';
+
+import { COLORS } from '@constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   thumbnailContainer: {
     width: Dimensions.get('window').width,
     height: 250,
-    backgroundColor: '#ACB0B9',
+    backgroundColor: COLORS.ui_grey_75,
   },
   thumbnailHeader: {
     padding: 16,
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     height: 100,
     position: 'absolute',
     top: -30,
-    shadowColor: '#000',
+    shadowColor: COLORS.black,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   thumbnailText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: '#fff',
+    color: COLORS.white,
   },
 
   nameDetailContainer: {
@@ -63,14 +64,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     textAlign: 'center',
-    color: '#fff',
+    color: COLORS.white,
     marginTop: 4,
   },
   name: {
     fontSize: 40,
     fontWeight: '700',
     textAlign: 'center',
-    color: '#fff',
+    color: COLORS.white,
     marginTop: 8,
   },
 
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#000',
+    color: COLORS.black,
     backgroundColor: COLORS.ui_grey_05,
     padding: 16,
   },
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   detailCardDescription: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#0096FF',
+    color: COLORS.blue_primary,
   },
 });
 

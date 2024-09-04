@@ -75,13 +75,17 @@ export const selectContactDetailData = (recordId: string) =>
         });
       }
 
+      const job = [selectedContact.jobTitle, selectedContact.company]
+        .filter(Boolean)
+        .join(selectedContact.jobTitle && selectedContact.company ? ' - ' : '');
+
       return {
         selectedContact: {
           id: selectedContact.recordID,
           name: `${selectedContact.givenName} ${selectedContact.middleName} ${selectedContact.familyName}`,
           nameInitials: `${selectedContact.givenName[0]}${selectedContact.familyName[0]}`,
           image: selectedContact.hasThumbnail && selectedContact.thumbnailPath,
-          job: [selectedContact.jobTitle, selectedContact.company].join(' - '),
+          job: job === '' ? null : job,
           isStarred: selectedContact.isStarred,
           sectionedData,
         },

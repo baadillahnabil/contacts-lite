@@ -1,13 +1,25 @@
 export default {
-  //UI Neutrals
   ui_grey_05: '#F2F2F2',
   ui_grey_10: '#E4E4E3',
   ui_grey_20: '#CBCACA',
+  ui_grey_30: '#BDBDC1',
+  ui_grey_40: '#A2A4B0',
   ui_grey_50: '#888888',
+  ui_grey_60: '#A4AAB7',
+  ui_grey_65: '#848994',
   ui_grey_70: '#4D4C4C',
+  ui_grey_75: '#ACB0B9',
   ui_grey_80: '#333333',
   ui_grey_90: '#161616',
+  ui_grey_100: '#9ca1ac',
+  ui_grey_110: '#616d79',
 
-  // background
   ui_light_selected_bg: '#E7F5FF',
+
+  gold: '#FFD700',
+  blue_primary: '#0096FF',
+  black: '#000',
+  white: '#fff',
+  dark_mode_bg: '#1d1d1d',
+  light_grey_bg: '#d6d6d6',
 };

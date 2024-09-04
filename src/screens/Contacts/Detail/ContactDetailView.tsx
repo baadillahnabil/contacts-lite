@@ -4,6 +4,8 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 
+import { COLORS } from '@constants';
+
 import { type PropsFromSelector } from './ContactDetailSelector';
 import styles from './styles';
 
@@ -20,7 +22,7 @@ const ContactDetailView = ({
   return (
     <SafeAreaView>
       <LinearGradient
-        colors={['#BDBDC1', '#A2A4B0']}
+        colors={[COLORS.ui_grey_30, COLORS.ui_grey_40]}
         style={styles.thumbnailContainer}>
         <View style={styles.thumbnailHeader}>
           <FeatherIcon.Button
@@ -36,7 +38,7 @@ const ContactDetailView = ({
             size={20}
             borderRadius={50}
             backgroundColor="#A3A4A7"
-            color={selectedContact.isStarred ? '#FFD700' : 'white'}
+            color={selectedContact.isStarred ? COLORS.gold : 'white'}
             iconStyle={{ marginRight: 0 }}
             onPress={handleFavorite}
           />
@@ -50,7 +52,7 @@ const ContactDetailView = ({
             />
           ) : (
             <LinearGradient
-              colors={['#A4AAB7', '#848994']}
+              colors={[COLORS.ui_grey_60, COLORS.ui_grey_65]}
               style={styles.thumbnailTextContainer}>
               <Text style={styles.thumbnailText}>
                 {selectedContact.nameInitials}
@@ -59,7 +61,9 @@ const ContactDetailView = ({
           )}
         </View>
         <View style={styles.nameDetailContainer}>
-          <Text style={styles.job}>{selectedContact.job}</Text>
+          {selectedContact.job && (
+            <Text style={styles.job}>{selectedContact.job}</Text>
+          )}
           <Text style={styles.name}>{selectedContact.name}</Text>
         </View>
       </LinearGradient>

@@ -18,20 +18,20 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#1d1d1d',
+    color: COLORS.dark_mode_bg,
   },
 
   sectionTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#000',
+    color: COLORS.black,
     backgroundColor: COLORS.ui_grey_05,
     paddingVertical: 12,
   },
 
   itemContainer: {
     borderBottomWidth: 1,
-    borderColor: '#d6d6d6',
+    borderColor: COLORS.light_grey_bg,
   },
   card: {
     paddingVertical: 14,
@@ -48,12 +48,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9ca1ac',
+    backgroundColor: COLORS.ui_grey_100,
   },
   cardAvatarText: {
     fontSize: 19,
     fontWeight: 'bold',
-    color: '#fff',
+    color: COLORS.white,
   },
   cardBody: {
     marginRight: 'auto',
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#000',
+    color: COLORS.black,
   },
   cardPhone: {
     fontSize: 15,
     lineHeight: 20,
     fontWeight: '500',
-    color: '#616d79',
+    color: COLORS.ui_grey_110,
     marginTop: 3,
   },
   cardAction: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#616d79',
+    color: COLORS.ui_grey_110,
     textAlign: 'center',
     marginTop: 12,
   },
