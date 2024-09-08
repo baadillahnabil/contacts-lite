@@ -44,7 +44,12 @@ const ContactListView = ({
         onRefresh={handleOnRefresh}
         renderSectionHeader={({ section: { title } }) =>
           title === 'Favorites' ? (
-            <AntIcon name="star" size={20} style={{ ...styles.sectionTitle }} />
+            <AntIcon
+              name="star"
+              size={20}
+              style={{ ...styles.sectionTitle }}
+              testID="favorites"
+            />
           ) : (
             <Text style={styles.sectionTitle}>{title}</Text>
           )
