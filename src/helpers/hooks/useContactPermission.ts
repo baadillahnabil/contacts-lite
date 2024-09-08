@@ -18,6 +18,7 @@ const useContactPermission = () => {
             buttonPositive: 'Accept',
           },
         );
+
         if (
           response === PermissionsAndroid.RESULTS.GRANTED ||
           response === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN
@@ -27,7 +28,7 @@ const useContactPermission = () => {
 
         return false;
       } catch (e) {
-        console.log(e);
+        console.error(e);
       } finally {
         setIsRequesting(false);
       }
@@ -41,8 +42,10 @@ const useContactPermission = () => {
           const response = await Contacts.requestPermission();
           if (response === 'authorized') return true;
         }
+
+        return false;
       } catch (e) {
-        console.log(e);
+        console.error(e);
       } finally {
         setIsRequesting(false);
       }
