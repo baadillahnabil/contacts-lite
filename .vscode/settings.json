@@ -1,4 +1,4 @@
 {
-  "cSpell.words": ["immer", "Pressable", "staro"],
+  "cSpell.words": ["immer", "Pressable", "staro", "testid"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }
